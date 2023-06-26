@@ -2,7 +2,8 @@ import sys
 import json
 import pandas as pd
 import os.path
-from F3_classification import *
+import pickle
+
 
 # Vérification du nombre d'arguments
 if len(sys.argv) != 10:
