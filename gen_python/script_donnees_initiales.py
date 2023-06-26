@@ -22,14 +22,14 @@ def reducDim(df):
     
     return df_reduced
 
-csv_file = "gen_pytohn/resources/export.csv"
+csv_file = "gen_python/resources/export.csv"
 file = pd.read_csv(csv_file, sep=';')
 df = prepaDB(file)
 df_reduced  = reducDim(df)
 list_df = df_reduced.values.tolist()
 
-file = open("data_init.sql", "w", encoding = "utf-8")
-if os.path.isfile("data_init.sql"):
+file = open("sql/data_init.sql", "w", encoding = "utf-8")
+if os.path.isfile("sql/data_init.sql"):
     file.write('-- Table Gravité\n')
     file.write('DELETE FROM gravite;\n')
     file.write('ALTER TABLE gravite AUTO_INCREMENT = 1;\n\n')
@@ -42,7 +42,7 @@ if os.path.isfile("data_init.sql"):
 
     file.write('-- Table Conditions athmosphériques\n')
     file.write('DELETE FROM conditions_atmospheriques;\n')
-    file.write('ALTER TABLE conditions_atmospheriques\n AUTO_INCREMENT = 1;\n\n')
+    file.write('ALTER TABLE conditions_atmospheriques AUTO_INCREMENT = 1;\n\n')
     file.write('INSERT INTO conditions_atmospheriques (descr_athmo) VALUES \n("Normale"),\n("Pluie légère"),\n("Pluie forte"),\n("Neige - grêle"),("Brouillard - fumée"),\n("Vent fort - tempête"),\n("Temps éblouissant"),\n("Temps couvert"),\n("Autre");\n\n')
 
     file.write('-- Table Luminosité\n')
@@ -57,11 +57,11 @@ if os.path.isfile("data_init.sql"):
 
     villes = pd.read_csv("gen_python/resources/commune2021.csv", sep = ",").drop(labels = ["TYPECOM", "REG", "DEP", "CTCD", "ARR", "TNCC", "NCC", "NCCENR", "CAN", "COMPARENT"], axis = 1).values.tolist()
 
-    file.write("""-- Table Gravité
-    DELETE FROM gravite;
-    ALTER TABLE gravite AUTO_INCREMENT = 1;
+    file.write("""-- Table Villes
+DELETE FROM ville;
+ALTER TABLE ville AUTO_INCREMENT = 1;
 
-    INSERT INTO gravite (descr_grav) VALUES \n\n""")
+INSERT INTO ville (code_insee, nom_ville) VALUES \n\n""")
 
     for ville in villes:
         if ville == villes[-1]:
@@ -69,7 +69,10 @@ if os.path.isfile("data_init.sql"):
         else:
             file.write(("(\"" + str(ville[0]) + "\", \"" + str(ville[1]) + "\"),\n"))
 
-    file.write('INSERT INTO accident (age, date, heure, latitude, longitude, id_ville, id_lum, id_athmo, id_etat_surf, id_dispo_secu) VALUES\n')
+    file.write("\n-- Table accident\n")
+    file.write("DELETE FROM accident;\n")
+    file.write("ALTER TABLE accident AUTO_INCREMENT = 1;\n\n")
+    file.write('INSERT INTO accident (age, date, heure, latitude, longitude, id_ville, id_lum, id_athmo, id_etat_surf, id_dispo_secu) VALUES\n\n')
 
     for list in list_df:
         if list == list_df[-1]:
