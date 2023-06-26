@@ -21,16 +21,9 @@ def prepaDB(df):
     return df
 
 def reducDim(df):
-
-    #Variable object ne déterminant pas la gravité de l'accident
-    df_reduced = df.drop(columns=[ 'num_veh', 'ville', 'id_code_insee'])
-
-    corr_matrix = df_reduced.corr(method="pearson")['descr_grav']
-    # print(corr_matrix)
-
-    #on drop tous ceux considérer comme non représentative de la gravité de l'accidents
-    df_reduced = df_reduced.drop(columns=['Num_Acc','id_usa', 'place', 'descr_agglo', 'descr_cat_veh', 'date', 'an_nais', 'hour', 'descr_motif_traj', 'description_intersection'])
-
+    #Variable ne déterminant pas la gravité de l'accident
+    df_reduced = df.drop(columns=[ 'num_veh', 'id_code_insee', 'Num_Acc','id_usa', 'place', 'descr_agglo', 'descr_cat_veh', 'an_nais', 'descr_motif_traj', 'description_intersection', 'descr_type_col'])
+    
     return df_reduced
 
 def KNN_Scikit_learn(k, accident_prédire,x_train, y_train, dist):
