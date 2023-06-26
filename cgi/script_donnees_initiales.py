@@ -28,7 +28,7 @@ df = prepaDB(file)
 df_reduced  = reducDim(df)
 list_df = df_reduced.values.tolist()
 
-file = open("data_init.sql", "w")
+file = open("data_init.sql", "w", encoding = "utf-8")
 if os.path.isfile("data_init.sql"):
    file.write('-- Table Gravité\n')
    file.write('DELETE FROM gravite;\n')
@@ -53,13 +53,13 @@ if os.path.isfile("data_init.sql"):
    file.write('-- Table Utilisation de dispositif de sécurité\n')
    file.write('DELETE FROM securite;\n')
    file.write('ALTER TABLE securite AUTO_INCREMENT = 1;\n\n')
-   file.write('INSERT INTO securite (descr_dispo_secu) VALUES \n("Utilisation d\'une ceinture de sécurité "),\n("Utilisation d\'un casque "),\n("Présence d\'une ceinture de sécurité - Utilisation non déterminable"),\n("Présence de ceinture de sécurité non utilisée "),\n("Autre - Non déterminable"),\n("Présence d\'un équipement réfléchissant non utilisé"),\n("Présence d\'un casque non utilisé "),\n("Utilisation d\'un dispositif enfant"),\n ("Présence d\'un casque - Utilisation non déterminable"),\n("Présence dispositif enfant - Utilisation non déterminable"),\n("Autre - Utilisé"), \n("Utilisation d\'un équipement réfléchissant "),\n("Autre - Non utilisé"), \n("Présence équipement réfléchissant - Utilisation non déterminable"),\n("Présence d\'un dispositif enfant non utilisé")\n;\n\n')
+   file.write('INSERT INTO securite (descr_dispo_secu) VALUES \n("Utilisation d\'une ceinture de sécurité "),\n("Utilisation d''un casque "),\n("Présence d\'une ceinture de sécurité - Utilisation non déterminable"),\n("Présence de ceinture de sécurité non utilisée "),\n("Autre - Non déterminable"),\n("Présence d\'un équipement réfléchissant non utilisé"),\n("Présence d\'un casque non utilisé "),\n("Utilisation d\'un dispositif enfant"),\n ("Présence d\'un casque - Utilisation non déterminable"),\n("Présence dispositif enfant - Utilisation non déterminable"),\n("Autre - Utilisé"), \n("Utilisation d\'un équipement réfléchissant "),\n("Autre - Non utilisé"), \n("Présence équipement réfléchissant - Utilisation non déterminable"),\n("Présence d\'un dispositif enfant non utilisé");\n\n')
 
    file.write('INSERT INTO accident (age, date, heure, latitude, longitude, id_ville, id_lum, id_athmo, id_etat_surf, id_dispo_secu) VALUES\n')
 
    for list in list_df:
       if list == list_df[-1]:
-         file.write('('+ str(list[7]) + ',' + str(list[0]) + ',' + str(list[10]) + ',' + str(list[2]) + ',' + str(list[3]) + ',' + str(list[1]) + ',' + str(list[5]) + ',' + str(list[4]) + ',' + str(list[6]) + ',' + str(list[8]) +');')
+         file.write('('+ str(list[7]) + ',' + str(list[0]) + ',' + str(list[10]) + ',' + str(list[2]) + ',' + str(list[3]) + ',\"' + str(list[1]) + '\",' + str(list[5]) + ',' + str(list[4]) + ',' + str(list[6]) + ',' + str(list[8]) +');')
       else :
-          file.write('('+ str(list[7]) + ',' + str(list[0]) + ',' + str(list[10]) + ',' + str(list[2]) + ',' + str(list[3]) + ',' + str(list[1]) + ',' + str(list[5]) + ',' + str(list[4]) + ',' + str(list[6]) + ',' + str(list[8]) +'),\n')
+          file.write('('+ str(list[7]) + ',' + str(list[0]) + ',' + str(list[10]) + ',' + str(list[2]) + ',' + str(list[3]) + ',\"' + str(list[1]) + '\",' + str(list[5]) + ',' + str(list[4]) + ',' + str(list[6]) + ',' + str(list[8]) +'),\n')
 file.close()
