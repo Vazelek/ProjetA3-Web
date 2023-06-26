@@ -5,9 +5,43 @@ import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
 
-from F1_preparation import *
-from F2_reduc_dimension import *
-from F3_knn import *
+
+def prepaDB(df):
+    # split la colonne date en deux colonnes date et hour
+    df[['date', 'hour']] = df['date'].str.split(' ', expand=True)
+
+    # enleve les - dans la colonne date et les : dans la colonne hour
+    df['date'] = df['date'].str.replace('-', '')
+    df['hour'] = df['hour'].str.replace(':', '')
+
+    # convertir la colonne date en int
+    df['date'] = df['date'].astype(int)
+    df['hour'] = df['hour'].astype(int)
+
+    return df
+
+def reducDim(df):
+
+    #Variable object ne déterminant pas la gravité de l'accident
+    df_reduced = df.drop(columns=[ 'num_veh', 'ville', 'id_code_insee'])
+
+    corr_matrix = df_reduced.corr(method="pearson")['descr_grav']
+    # print(corr_matrix)
+
+    #on drop tous ceux considérer comme non représentative de la gravité de l'accidents
+    df_reduced = df_reduced.drop(columns=['Num_Acc','id_usa', 'place', 'descr_agglo', 'descr_cat_veh', 'date', 'an_nais', 'hour', 'descr_motif_traj', 'description_intersection'])
+
+    return df_reduced
+
+def KNN_Scikit_learn(k, accident_prédire,x_train, y_train, dist):
+    #instanciation et définition du k
+    knn = KNeighborsClassifier(n_neighbors = k)
+    #training
+    knn.fit(x_train,y_train)
+    #Prédiction 
+    pred_grav = knn.predict(accident_prédire)
+
+    return pred_grav
 
 #------------------------------------------------------------------
 #------------------------Début du script---------------------------
