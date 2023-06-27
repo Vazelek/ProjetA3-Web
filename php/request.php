@@ -152,6 +152,7 @@
                 $data = dbGetSecurite($db);
             }
         }
+        //Ajout des informations d'un nouvel accident
         elseif($requestMethod == 'POST'){
             if($requestRessource == 'add_accident'){
                 if(isset($_POST['age']) && isset($_POST['date']) && isset($_POST['heure']) && isset($_POST['ville']) && isset($_POST['lat']) && isset($_POST['long']) && isset($_POST['athmo']) && isset($_POST['lum']) && isset($_POST['etat_surf']) && isset($_POST['secu'])){
@@ -193,11 +194,11 @@
                     if(!empty($_POST["etat_surf"])){
                         $etat_surf = $_POST["etat_surf"];
                     }
-                    if(!empty($_POST["age"])){
-                        $age = $_POST["age"];
+                    if(!empty($_POST["secu"])){
+                        $secu = $_POST["secu"];
                     }
 
-                    
+                    addAccident($df, $age = $age, $date = $date, $heure = $heure, $latitude = $lat, $longitude = $long, $id_ville = $ville, $id_lum = $lum, $id_athmo = $athmo, $id_etat_surf = $etat_surf, $id_dispo_secu = $secu);
                 }
             }
         }
