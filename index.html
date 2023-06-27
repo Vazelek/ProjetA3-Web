@@ -21,71 +21,82 @@
 
   </head>
   <body>
-    <!-- Header -->
-    <nav>
-      <ul>
-        <li>
-          <picture>
-            <a href="index.html" class="active">
-              <img src="img/logo.png" alt="logo_isen">
-            </a>
-          </picture>
-        </li>
-        <li><a href="index.html" class="active">Acceuil</a></li>
-        <li><a href="php/visualisation.php">Visualisation</a></li>
-        <li><a href="php/add_accident.php">Ajouter un accident</a></li>
-        <li><a href="#">Se connecter <i class="fa-regular fa-user"></i></a></li>
-        <li><button>Créer un compte <i class="fas fa-user-plus"></i></button></li>
-      </ul>
-    </nav>
-    <!-- Home -->
-    <div class="superposition">
-      <h1>Accidents</h1>
-      <h1>- 2009 -</h1>
-      <h4>Data Visualisation</h4>
-    </div>
+    <div id="page">
+      <div id="header">
+        <!-- Header -->
+        <nav>
+          <ul>
+            <li>
+              <picture>
+                <a href="index.html" class="active">
+                  <img src="img/logo.png" alt="logo_isen">
+                </a>
+              </picture>
+            </li>
+            <li><a href="index.html" class="active">Acceuil</a></li>
+            <li><a href="php/visualisation.php">Visualisation</a></li>
+            <li><a href="php/add_accident.php">Ajouter un accident</a></li>
+            <li><a href="#">Se connecter <i class="fa-regular fa-user"></i></a></li>
+            <li><button>Créer un compte <i class="fas fa-user-plus"></i></button></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="content">
+        <!-- Home -->
+        <div class="superposition">
+          <h1>Accidents</h1>
+          <h1>- 2009 -</h1>
+          <h4>Data Visualisation</h4>
+        </div>
 
-   
-    <a class="button" href="php/add_accident.php">
-        <i class="fa-solid fa-plus">Ajouter un accident</i>
-    </a>
-    <div class="description_projet">
-      <p>
-        Description du projet : </p>
-        <p>
-          Approfondir les compétences acquises dans les modules Big Data, Intelligence Artificielle,
-          Développement Web et Base de Données à travers une application complète de traitements et de
-          visualisation de données concernant les accidents corporels de la circulation routière en France.
-      </p>
-  
+      
+        <a class="button" href="php/add_accident.php">
+            <i class="fa-solid fa-plus">Ajouter un accident</i>
+        </a>
+        <div class="description_projet">
+          <p>
+            Description du projet : </p>
+            <p>
+              Approfondir les compétences acquises dans les modules Big Data, Intelligence Artificielle,
+              Développement Web et Base de Données à travers une application complète de traitements et de
+              visualisation de données concernant les accidents corporels de la circulation routière en France.
+          </p>
+      
+        </div>
+        
+        <div>Visualisation des données<a class="button" href="php/visualisation.php"><i class="fas fa-eye"></i></a></div>
+      </div>
+      <div id="footer">
+        <!-- Footer -->
+        <footer>
+          <hr>
+          <p>
+            Nous sommes une équipe d’étudiants en troisième année à l’ISEN (école d’ingénieur). 
+            Notre projet est de réaliser un site web pour visualisation une base de données d’accidents de la route de 2009.
+          </p>
+
+          <hr>
+          <span>
+            <picture>
+              <a href="index.html" class="active">
+                <img src="img/logo.png" alt="logo_isen">
+              </a>
+            </picture>
+            <!-- <div>Logo</div> -->
+            <div>© 2023 Projet A3 ISEN Nantes</div>
+            <div>
+              <p>Valentin<br> Hervé <i class="far fa-envelope" style="color: #ffc40c;"></i></p>
+              <p>Maxence<br> Rogerieux<i class="far fa-envelope" style="color: #ffc40c;"></i></p>
+              <p>Antoine<br> Esnault<i class="far fa-envelope" style="color: #ffc40c;"></i></p>
+              
+            </div>
+          </span>
+          
+        </footer>
+      </div>
     </div>
     
-    <div>Visualisation des données<a class="button" href="php/visualisation.php"><i class="fas fa-eye"></i></a></div>
-    <!-- Footer -->
-      <footer>
-        <hr>
-        <p>
-          Nous sommes une équipe d’étudiants en troisième année à l’ISEN (école d’ingénieur). 
-          Notre projet est de réaliser un site web pour visualisation une base de données d’accidents de la route de 2009.
-        </p>
-
-        <hr>
-        <span>
-          <picture>
-            <a href="index.html" class="active">
-              <img src="img/logo.png" alt="logo_isen">
-            </a>
-          </picture>
-          <!-- <div>Logo</div> -->
-          <div>© 2023 Projet A3 ISEN Nantes</div>
-          <div>
-            <p>Valentin<br> Hervé <i class="far fa-envelope" style="color: #ffc40c;"></i></p>
-            <p>Maxence<br> Rogerieux<i class="far fa-envelope" style="color: #ffc40c;"></i></p>
-            <p>Antoine<br> Esnault<i class="far fa-envelope" style="color: #ffc40c;"></i></p>
-            
-          </div>
-        </span>
-        
-      </footer>
+    
+    
   </body>
 </html>
