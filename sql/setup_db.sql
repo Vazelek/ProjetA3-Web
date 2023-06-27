@@ -1,3 +1,11 @@
+DROP TABLE IF EXISTS `etat_surface`;
+DROP TABLE IF EXISTS `luminosite`;
+DROP TABLE IF EXISTS `accident`;
+DROP TABLE IF EXISTS `gravite`;
+DROP TABLE IF EXISTS `conditions_atmospheriques`;
+DROP TABLE IF EXISTS `securite`;
+DROP TABLE IF EXISTS `ville`;
+
 CREATE TABLE `etat_surface`(
     `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `descr_etat_surf` TINYTEXT NOT NULL
@@ -11,14 +19,14 @@ CREATE TABLE `accident`(
     `age` INT NOT NULL,
     `date` DATE NOT NULL,
     `heure` TIME NOT NULL,
-    `latitude` INT NOT NULL,
-    `longitude` INT NOT NULL,
-    `id_ville` TINYTEXT NOT NULL,
-    `id_lum` TINYINT NOT NULL,
-    `id_athmo` TINYINT NOT NULL,
-    `id_etat_surf` TINYINT NOT NULL,
-    `id_dispo_secu` TINYINT NOT NULL,
-    `id_grav` TINYINT NULL
+    `latitude` DOUBLE(8, 5) NOT NULL,
+    `longitude` DOUBLE(8, 5) NOT NULL,
+    `id_ville` CHAR(5) NOT NULL,
+    `id_lum` TINYINT UNSIGNED NOT NULL,
+    `id_athmo` TINYINT UNSIGNED NOT NULL,
+    `id_etat_surf` TINYINT UNSIGNED NOT NULL,
+    `id_dispo_secu` TINYINT UNSIGNED NOT NULL,
+    `id_grav` TINYINT UNSIGNED NULL
 );
 CREATE TABLE `gravite`(
     `id` TINYINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -33,7 +41,7 @@ CREATE TABLE `securite`(
     `descr_dispo_secu` TINYTEXT NOT NULL
 );
 CREATE TABLE `ville`(
-    `code_insee` TINYTEXT NOT NULL,
+    `code_insee` CHAR(5) NOT NULL,
     `nom_ville` TINYTEXT NOT NULL
 );
 ALTER TABLE

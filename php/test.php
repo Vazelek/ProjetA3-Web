@@ -186,31 +186,48 @@
 
             // echo "</table>\n";
         ?>
-
         <br>
-        <p id="nb_result"></p>
-        <br>
-        <button id="prev_btn">
-                Précédent
+        <button id="show_table">
+            Afficher le tableau
         </button>
-        <button id="next_btn">
-                Suivant
+        <button id="hide_table">
+            Masquer le tableau
         </button>
-        <br>
-        <button id="first">
-                Premier
-        </button>
-        <button id="last">
-                Dernier
-        </button>
-        <p id="index_page">Page : <input type="number" id="page_selec" name="page_selec" value="1"> / <span id="page_max"></span></p><br>
 
-        <table id="data-array">
+        <div id="big_table" style="display: none;">
+            <br>
+            <p id="nb_result"></p>
+            <br>
+            <button id="prev_btn">
+                    Précédent
+            </button>
+            <button id="next_btn">
+                    Suivant
+            </button>
+            <br>
+            <button id="first">
+                    Premier
+            </button>
+            <button id="last">
+                    Dernier
+            </button>
+            <p id="index_page">Page : <input type="number" id="page_selec" name="page_selec" value="1"> / <span id="page_max"></span></p><br>
 
-        </table>
+            <table id="data-array">
+
+            </table>
+        </div>
+
+        <br><br>
+        <div id="map">
+
+        </div>
 
         
     </body>
     <script src="../js/ajax.js"></script>
+    <script src="../js/map.js"></script>
     <script src="../js/filters.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
 </html>

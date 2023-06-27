@@ -9,6 +9,8 @@ const indexPage = document.getElementById('index_page');
 const firstBtn = document.getElementById('first');
 const lastBtn = document.getElementById('last');
 const pageSelec = document.getElementById('page_selec');
+const showTableBtn = document.getElementById('show_table');
+const hideTableBtn = document.getElementById('hide_table');
 
 
 submitBtn.addEventListener('click', () => {
@@ -40,6 +42,14 @@ firstBtn.addEventListener('click', () => {
 lastBtn.addEventListener('click', () => {
 	page = page_max;
     setFilters();
+});
+
+showTableBtn.addEventListener('click', () => {
+	document.getElementById("big_table").style["display"] = "block";
+});
+
+hideTableBtn.addEventListener('click', () => {
+	document.getElementById("big_table").style["display"] = "none";
 });
 
 // Détecte quand on presse la touche entrée sur l'input des pages
@@ -112,6 +122,7 @@ function setFilters(){
 
     // Retourne et affiche les données correspondantes aux filtres (limitée à 20)
     ajaxRequest('GET', '../php/request.php/request/?age_min=' + age_min + '&age_max=' + age_max + '&annee=' + annee + '&mois=' + mois + '&jour=' + jour + '&lat_min=' + lat_min + '&lat_max=' + lat_max + '&long_min=' + long_min + '&long_max=' + long_max + '&code_insee=' + code_insee + '&id_lum=' + id_lum + '&id_athmo=' + id_athmo + '&id_etat_surf=' + id_etat_surf + '&id_dispo_secu=' + id_dispo_secu + '&id_grav=' + id_grav + '&order_by=' + order_by + '&limit=' + page_len + '&offset=' + (page - 1) * page_len + '&asc=' + asc, displayArray);
+    ajaxRequest('GET', '../php/request.php/request/?age_min=' + age_min + '&age_max=' + age_max + '&annee=' + annee + '&mois=' + mois + '&jour=' + jour + '&lat_min=' + lat_min + '&lat_max=' + lat_max + '&long_min=' + long_min + '&long_max=' + long_max + '&code_insee=' + code_insee + '&id_lum=' + id_lum + '&id_athmo=' + id_athmo + '&id_etat_surf=' + id_etat_surf + '&id_dispo_secu=' + id_dispo_secu + '&id_grav=' + id_grav + '&order_by=' + order_by + '&limit=' + 10000 + '&offset=' + '&asc=' + asc, displayMap);
     
     // Retourne la taille des données totale
     ajaxRequest('GET', '../php/request.php/request/?age_min=' + age_min + '&age_max=' + age_max + '&annee=' + annee + '&mois=' + mois + '&jour=' + jour + '&lat_min=' + lat_min + '&lat_max=' + lat_max + '&long_min=' + long_min + '&long_max=' + long_max + '&code_insee=' + code_insee + '&id_lum=' + id_lum + '&id_athmo=' + id_athmo + '&id_etat_surf=' + id_etat_surf + '&id_dispo_secu=' + id_dispo_secu + '&id_grav=' + id_grav + '&order_by=' + order_by + '&limit=' + '&offset=' + '&asc=' + asc, getDataSize);
