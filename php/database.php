@@ -30,15 +30,15 @@
             LEFT JOIN conditions_atmospheriques c ON a.id_athmo = c.id
             LEFT JOIN securite s ON a.id_dispo_secu = s.id
             LEFT JOIN etat_surface e ON a.id_etat_surf = e.id
-            WHERE a.id > 73600
-            ORDER BY a.id;";
+            ORDER BY a.id
+            LIMIT 100;";
 
         $statement = $db->query($request);
 
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function getDataWithConstraint($db, $age_min = NULL, $age_max = NULL, $annee = NULL, $mois = NULL, $jour = NULL, $lat_min = NULL, $lat_max = NULL, $long_min = NULL, $long_max = NULL, $code_insee = NULL, $id_lum = NULL, $id_athmo = NULL, $id_etat_surf = NULL, $id_dispo_secu = NULL, $id_grav = NULL){
+    function getDataWithConstraint($db, $age_min = NULL, $age_max = NULL, $annee = NULL, $mois = NULL, $jour = NULL, $lat_min = NULL, $lat_max = NULL, $long_min = NULL, $long_max = NULL, $code_insee = NULL, $id_lum = NULL, $id_athmo = NULL, $id_etat_surf = NULL, $id_dispo_secu = NULL, $id_grav = NULL, $order_by = NULL, $asc = true, $limit = 100){
         $request = "SELECT a.id, a.age, a.date, a.heure, a.latitude, a.longitude, a.id_ville, v.nom_ville, a.id_lum, l.descr_lum, a.id_athmo, c.descr_athmo, a.id_etat_surf, e.descr_etat_surf, a.id_dispo_secu, s.descr_dispo_secu FROM accident a 
         LEFT JOIN ville v ON a.id_ville = v.code_insee
         LEFT JOIN luminosite l ON a.id_lum = l.id
@@ -71,11 +71,11 @@
                     $request = $request."a.date = '$annee-$mois-$jour'";
                 }
                 else{
-                    $request = $request."a.date BETWEEN '$annee-$mois-01' AND '$annee-$mois-31"; // A TEST
+                    $request = $request."a.date BETWEEN '$annee-$mois-01' AND '$annee-$mois-31'"; // A TEST
                 }
             }
             else{
-                $request = $request."a.date BETWEEN '$annee-01-01' AND '$annee-12-31";
+                $request = $request."a.date BETWEEN '$annee-01-01' AND '$annee-12-31'";
             }
         }
 
@@ -166,8 +166,34 @@
             }
             $request = $request."a.id_grav = $id_grav";
         }
-        $request = $request.";";
 
-        echo $request;
+        switch($order_by){
+            case "id": 
+                $request = $request." ORDER BY a.id";
+                if($asc)
+                    $request = $request." ASC LIMIT $limit;";
+                else
+                    $request = $request." DESC LIMIT $limit;";
+                break;
+            case "age":
+                $request = $request." ORDER BY a.age";
+                if($asc)
+                    $request = $request." ASC LIMIT $limit;";
+                else
+                    $request = $request." DESC LIMIT $limit;";
+                break;
+            case "date":
+                $request = $request." ORDER BY a.date, a.heure";
+                if($asc)
+                    $request = $request." ASC LIMIT $limit;";
+                else
+                    $request = $request." DESC LIMIT $limit;";
+                break;
+            default :
+                $request = $request." LIMIT $limit;";
+        }
+        
+        $statement = $db->query($request);
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 ?>
