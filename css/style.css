@@ -5,7 +5,56 @@ Groupe: ISEN X GROUPE Y
 Annee:
 */
 
+
+
 /* Body */
+
+/* Acceuil */
+.superposition {
+    background: linear-gradient(to left, transparent, white),
+      url("https://www.madarconsulting.com/wp-content/uploads/2015/06/Preventing-Car-Crashes-with-Big-Data-Analytics.png");
+    display: table-cell;
+    
+    max-width: 1133.99px;
+    max-height: 610px;
+    vertical-align: middle;
+    display: block;
+    margin-right: auto;
+    /* background-repeat: no-repeat; */
+    border-radius: 20px;
+}
+
+.button {
+    border-radius: 50px;
+    border-style : none; 
+    /* Mikado yellow color*/
+    background-color: #ffc40c;
+    margin: 25px;
+    padding: 10px;
+    text-decoration: none;
+}
+
+button {
+    border-radius: 50px;
+    border-style : none; 
+    /* Mikado yellow color*/
+    background-color: #ffc40c;
+    margin: 25px;
+    padding: 10px;
+}
+
+a {
+    color : black
+}
+
+a:hover {
+    color: white;
+}
+
+.description_projet{
+    margin-left: 15%;
+    margin-right: 15%;
+}
 
 /* Header level 1 */
 
@@ -18,6 +67,61 @@ Annee:
 /* Forms */
 
 /* Header and footer */
+
+/* Nav */
+ul {
+    list-style-type: none;
+    text-align: center;
+    
+}
+
+li a{
+    color: #000;
+    text-decoration: none;
+    
+}
+
+li{
+    display: inline;
+    margin-right: 5%;
+}
+
+li a.active {
+    color : orange
+}
+
+li a:hover:not(.active) {
+    color: black;
+}
+
+
+/* footer */
+footer{
+    /*position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+footer span{
+    display: flex;
+    align-items: stretch;
+}
+
+footer span div{
+    display: flex;
+    flex-grow: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+footer span div p{
+    display: flex;
+    flex-direction: column;
+    margin-right: 5%;
+}
+
 
 /* Authentication */
 
