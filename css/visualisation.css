@@ -1,0 +1,101 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{
+    text-align: center;
+    font-size: 15px;
+}
+
+td, th{
+    padding: 10px 10px;
+}
+
+.row_num{
+    background-color: #FFC800;
+    border-radius: 10px 0 0 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.row_selec{
+    background-color: #FFC800;
+}
+
+.table_header{
+    background-color: #E7E5DF;
+}
+
+#th_left{
+    border-radius: 10px 0 0 0;
+}
+
+#th_right{
+    border-radius: 0 10px 0 0;
+}
+
+.table_content{
+    border-bottom: 1px solid #E7E5DF;
+    border-top: 1px solid #E7E5DF;
+}
+
+.row_selec_first{
+    border-top-right-radius: 10px;
+}
+
+.row_selec_last{
+    border-bottom-right-radius: 10px;
+}
+
+
+/* Sélecteur de page */
+.page-selector{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.left-arrow{
+    transform: rotate(90deg);
+}
+
+.right-arrow{
+    transform: rotate(270deg);
+}
+
+.arrow{
+    width: 25px;
+}
+
+.arrow:hover{
+    content: url("../img/arrow_hover.png");
+    cursor: pointer;
+}
+
+.page-selector p{
+    padding: 0 10px 0 10px;
+    margin: 0 5px 0 5px;
+}
+
+.page-selector p:hover{
+    color: #FFC800;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+/* Supprime les flèches de l'input number */
+.page-selector input::-webkit-outer-spin-button,
+.page-selector input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.page-selector input{
+    width: 40px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 5px 5px 5px lightgray inset;
+    border: 1px solid gray;
+    padding: 2px;
+}
