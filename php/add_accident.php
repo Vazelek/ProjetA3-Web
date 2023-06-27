@@ -35,8 +35,8 @@
           </picture>
         </li>
         <li><a href="../index.html" class="active">Acceuil</a></li>
-        <li><a href="php/visualisation.php">Visualisation</a></li>
-        <li><a href="php/add_accident.php">Ajouter un accident</a></li>
+        <li><a href="../php/visualisation.php">Visualisation</a></li>
+        <li><a href="../php/add_accident.php">Ajouter un accident</a></li>
         <li><a href="#">Se connecter <i class="fa-regular fa-user"></i></a></li>
         <li><button>Créer un compte <i class="fas fa-user-plus"></i></button></li>
       </ul>
