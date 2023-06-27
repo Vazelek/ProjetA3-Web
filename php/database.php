@@ -20,7 +20,6 @@
         if($db->query($request) === TRUE){
             echo "Error when executing \"addAccident\" db request";
         }
-        return $request;
     }
 
     function getAllData($db){ // Delete WHERE
@@ -38,8 +37,25 @@
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function getDataWithConstraint($db, $age_min = NULL, $age_max = NULL, $annee = NULL, $mois = NULL, $jour = NULL, $lat_min = NULL, $lat_max = NULL, $long_min = NULL, $long_max = NULL, $code_insee = NULL, $id_lum = NULL, $id_athmo = NULL, $id_etat_surf = NULL, $id_dispo_secu = NULL, $id_grav = NULL, $order_by = NULL, $asc = true, $limit = 100){
-        $request = "SELECT a.id, a.age, a.date, a.heure, a.latitude, a.longitude, a.id_ville, v.nom_ville, a.id_lum, l.descr_lum, a.id_athmo, c.descr_athmo, a.id_etat_surf, e.descr_etat_surf, a.id_dispo_secu, s.descr_dispo_secu FROM accident a 
+    function getDataWithConstraint($db, $age_min = NULL, $age_max = NULL, $annee = NULL, $mois = NULL, $jour = NULL, $lat_min = NULL, $lat_max = NULL, $long_min = NULL, $long_max = NULL, $code_insee = NULL, $id_lum = NULL, $id_athmo = NULL, $id_etat_surf = NULL, $id_dispo_secu = NULL, $id_grav = NULL, $order_by = NULL, $asc = true, $limit = NULL, $offset = NULL){
+        $select = NULL;
+        if($limit == NULL){
+            $select = "COUNT(*)";
+            $limit = "";
+        }
+        else{
+            $select = "a.id, a.age, a.date, a.heure, a.latitude, a.longitude, a.id_ville, v.nom_ville, a.id_lum, l.descr_lum, a.id_athmo, c.descr_athmo, a.id_etat_surf, e.descr_etat_surf, a.id_dispo_secu, s.descr_dispo_secu";
+            $limit = " LIMIT ".$limit;
+        }
+
+        if($offset == NULL){
+            $offset = "";
+        }
+        else{
+            $offset = " OFFSET ".$offset;
+        }
+        
+        $request = "SELECT $select FROM accident a 
         LEFT JOIN ville v ON a.id_ville = v.code_insee
         LEFT JOIN luminosite l ON a.id_lum = l.id
         LEFT JOIN conditions_atmospheriques c ON a.id_athmo = c.id
@@ -171,29 +187,92 @@
             case "id": 
                 $request = $request." ORDER BY a.id";
                 if($asc)
-                    $request = $request." ASC LIMIT $limit;";
+                    $request = $request." ASC";
                 else
-                    $request = $request." DESC LIMIT $limit;";
+                    $request = $request." DESC";
                 break;
             case "age":
                 $request = $request." ORDER BY a.age";
                 if($asc)
-                    $request = $request." ASC LIMIT $limit;";
+                    $request = $request." ASC";
                 else
-                    $request = $request." DESC LIMIT $limit;";
+                    $request = $request." DESC";
                 break;
             case "date":
                 $request = $request." ORDER BY a.date, a.heure";
                 if($asc)
-                    $request = $request." ASC LIMIT $limit;";
+                    $request = $request." ASC";
                 else
-                    $request = $request." DESC LIMIT $limit;";
+                    $request = $request." DESC";
                 break;
             default :
-                $request = $request." LIMIT $limit;";
+                break;
         }
+
+        $request = $request.$limit.$offset.";";
         
         $statement = $db->query($request);
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    function dbGetAthmosphere($db){
+            try{
+                $request ="SELECT * FROM conditions_atmospheriques";
+                $statement = $db->prepare($request);
+                $statement->execute();
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            }catch (PDOException $exception){
+                error_log('Request error: '.$exception->getMessage());
+                return false;
+            }
+
+            return $result;
+    }
+
+    function dbGetLuminosite($db){
+        try{
+            $request ="SELECT * FROM luminosite";
+            $statement = $db->prepare($request);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        }catch (PDOException $exception){
+            error_log('Request error: '.$exception->getMessage());
+            return false;
+        }
+
+        return $result;
+    }
+
+    function dbGetEtatRoute($db){
+        try{
+            $request ="SELECT * FROM etat_surface";
+            $statement = $db->prepare($request);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        }catch (PDOException $exception){
+            error_log('Request error: '.$exception->getMessage());
+            return false;
+        }
+
+        return $result;
+    }
+
+    function dbGetSecurite($db){
+        try{
+            $request ="SELECT * FROM securite";
+            $statement = $db->prepare($request);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        }catch (PDOException $exception){
+            error_log('Request error: '.$exception->getMessage());
+            return false;
+        }
+
+        return $result;
+    }
+    
 ?>

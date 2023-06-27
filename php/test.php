@@ -33,27 +33,41 @@
 
         ?>
 
-        <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+        <div id="form">
 			<h1>Inscription</h1>
 
 			<p>Age min</p>
-			<input type="text" name="age_min" >
+			<input type="text" name="age_min" id="age_min" >
             <p>Age max</p>
-			<input type="text" name="age_max" >
+			<input type="text" name="age_max" id="age_max" >
 			<p>Année</p>
-			<input type="text" name="annee">
+			<input type="text" name="annee" id="annee">
 			<p>Mois</p>
-			<input type="text" name="mois" >
+			<input type="text" name="mois" id="mois">
 			<p>jour</p>
-			<input type="text" name="jour" >
+			<input type="text" name="jour" id="jour">
 			<p>lat min</p>
-			<input type="text" name="lat_min">
+			<input type="text" name="lat_min" id="lat_min">
 			<p>lat max</p>
-			<input type="text" name="lat_max">
+			<input type="text" name="lat_max" id="lat_max">
 			<p>luminosite</p>
-			<input type="text" name="lum">
+			<input type="text" name="id_lum" id="id_lum">
+            <p>long_min</p>
+			<input type="text" name="long_min" id="long_min">
+            <p>long_max</p>
+			<input type="text" name="long_max" id="long_max">
+            <p>code_insee</p>
+			<input type="text" name="code_insee" id="code_insee">
+            <p>id_athmo</p>
+			<input type="text" name="id_athmo" id="id_athmo">
+            <p>id_etat_surf</p>
+			<input type="text" name="id_etat_surf" id="id_etat_surf">
+            <p>id_dispo_secu</p>
+			<input type="text" name="id_dispo_secu" id="id_dispo_secu">
+            <p>id_grav</p>
+			<input type="text" name="id_grav" id="id_grav">
             <p>limit</p>
-			<input type="text" name="limit">
+			<input type="text" name="limit" id="limit">
             <br>
 
             <label for="order_by">Order by:</label>
@@ -70,9 +84,9 @@
 
             <p>PS : Le order by sera sous forme de flêche en haut des catégories plutôt</p>
 
-			<button>Envoyer</button>
+			<button id="submit_btn">Rechercher</button>
             <br><br>
-        </form>
+            </div>
 
         <?php
             $age_min = NULL;
@@ -150,28 +164,53 @@
                 }
             }
 
-            $data = getDataWithConstraint($db, $age_min = $age_min, $age_max = $age_max, $annee = $annee, $mois = $mois, $jour = $jour, $lat_min = $lat_min, $lat_max = $lat_max, $long_min = $long_min, $long_max = $long_max, $code_insee = $code_insee, $id_lum = $id_lum, $id_athmo = $id_athmo, $id_etat_surf = $id_etat_surf, $id_dispo_secu = $id_dispo_secu, $id_grav = $id_grav, $order_by = $order_by, $asc = $asc, $limit = $limit);
+            // $data = getDataWithConstraint($db, $age_min = $age_min, $age_max = $age_max, $annee = $annee, $mois = $mois, $jour = $jour, $lat_min = $lat_min, $lat_max = $lat_max, $long_min = $long_min, $long_max = $long_max, $code_insee = $code_insee, $id_lum = $id_lum, $id_athmo = $id_athmo, $id_etat_surf = $id_etat_surf, $id_dispo_secu = $id_dispo_secu, $id_grav = $id_grav, $order_by = $order_by, $asc = $asc, $limit = $limit);
 
-            echo "<table>\n";
+            // echo "<table>\n";
 
-            foreach($data as $val){
-                echo " <tr>\n";
-                echo "  <td>".$val["id"]."</td>";
-                echo "  <td>".$val["age"]."</td>";
-                echo "  <td>".$val["date"]."</td>";
-                echo "  <td>".$val["heure"]."</td>";
-                echo "  <td>".$val["nom_ville"]."</td>";
-                echo "  <td>".$val["latitude"]."</td>";
-                echo "  <td>".$val["longitude"]."</td>";
-                echo "  <td>".$val["descr_lum"]."</td>";
-                echo "  <td>".$val["descr_etat_surf"]."</td>";
-                echo "  <td>".$val["descr_athmo"]."</td>";
-                echo "  <td>".$val["descr_dispo_secu"]."</td>";
-                echo " </tr>\n";
-            }
+            // foreach($data as $val){
+            //     echo " <tr>\n";
+            //     echo "  <td>".$val["id"]."</td>";
+            //     echo "  <td>".$val["age"]."</td>";
+            //     echo "  <td>".$val["date"]."</td>";
+            //     echo "  <td>".$val["heure"]."</td>";
+            //     echo "  <td>".$val["nom_ville"]."</td>";
+            //     echo "  <td>".$val["latitude"]."</td>";
+            //     echo "  <td>".$val["longitude"]."</td>";
+            //     echo "  <td>".$val["descr_lum"]."</td>";
+            //     echo "  <td>".$val["descr_etat_surf"]."</td>";
+            //     echo "  <td>".$val["descr_athmo"]."</td>";
+            //     echo "  <td>".$val["descr_dispo_secu"]."</td>";
+            //     echo " </tr>\n";
+            // }
 
-            echo "</table>\n";
+            // echo "</table>\n";
         ?>
+
+        <br>
+        <p id="nb_result"></p>
+        <br>
+        <button id="prev_btn">
+                Précédent
+        </button>
+        <button id="next_btn">
+                Suivant
+        </button>
+        <br>
+        <button id="first">
+                Premier
+        </button>
+        <button id="last">
+                Dernier
+        </button>
+        <p id="index_page">Page : <input type="number" id="page_selec" name="page_selec" value="1"> / <span id="page_max"></span></p><br>
+
+        <table id="data-array">
+
+        </table>
+
         
     </body>
+    <script src="../js/ajax.js"></script>
+    <script src="../js/filters.js"></script>
 </html>
