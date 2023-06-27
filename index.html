@@ -12,6 +12,7 @@
 
     <!-- CSS Style -->
     <link href="css/style.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
     <!-- JS -->
     <script src="https://kit.fontawesome.com/fc034126a9.js" crossorigin="anonymous"></script>
     <script src="js/utils.js" defer></script>
@@ -22,7 +23,7 @@
   </head>
   <body>
     <div id="page">
-      <div id="header">
+      <div>
         <!-- Header -->
         <nav>
           <ul>
@@ -34,40 +35,49 @@
               </picture>
             </li>
             <li><a href="index.html" class="active">Acceuil</a></li>
-            <li><a href="php/visualisation.php">Visualisation</a></li>
-            <li><a href="php/add_accident.php">Ajouter un accident</a></li>
+            <li><a href="visualisation.html">Visualisation</a></li>
+            <li><a href="add_accident.html">Ajouter un accident</a></li>
             <li><a href="#">Se connecter <i class="fa-regular fa-user"></i></a></li>
-            <li><button>Créer un compte <i class="fas fa-user-plus"></i></button></li>
+            <li><a href=""  class="button"><button>Créer un compte  <i class="fas fa-user-plus"></i></button></a></li>
           </ul>
         </nav>
       </div>
       <div id="content">
         <!-- Home -->
-        <div class="superposition">
-          <h1>Accidents</h1>
-          <h1>- 2009 -</h1>
-          <h4>Data Visualisation</h4>
+        <div class="container">
+          <img id="superposition" src="https://www.madarconsulting.com/wp-content/uploads/2015/06/Preventing-Car-Crashes-with-Big-Data-Analytics.png" alt="">
+          <div class="gradient-overlay"></div>
+          <div id="text-overlay">
+            <h1 class="title_img">Accidents</h1>
+            <h1 class="title_img">- 2009 -</h1>
+            <h4 class="title_img">Data Visualisation</h4>
+          </div>
         </div>
-
-      
-        <a class="button" href="php/add_accident.php">
+          
+        
+        <div>
+          <a class="button" href="add_accident.html">
             <i class="fa-solid fa-plus">Ajouter un accident</i>
-        </a>
+          </a>
+        </div>
+        
         <div class="description_projet">
+          <h3>
+            Description du projet : 
+          </h3>
+          <br>
           <p>
-            Description du projet : </p>
-            <p>
               Approfondir les compétences acquises dans les modules Big Data, Intelligence Artificielle,
               Développement Web et Base de Données à travers une application complète de traitements et de
               visualisation de données concernant les accidents corporels de la circulation routière en France.
           </p>
-      
         </div>
         
-        <div>Visualisation des données<a class="button" href="php/visualisation.php"><i class="fas fa-eye"></i></a></div>
+        <div id="index_visu">Visualisation des données<a class="button" href="visualisation.html"><i class="fas fa-eye"></i></a></div>
       </div>
-      <div id="footer">
-        <!-- Footer -->
+
+      <!-- Footer -->
+      <div>
         <footer>
           <hr>
           <p>
@@ -77,17 +87,18 @@
 
           <hr>
           <span>
-            <picture>
-              <a href="index.html" class="active">
-                <img src="img/logo.png" alt="logo_isen">
-              </a>
-            </picture>
-            <!-- <div>Logo</div> -->
+            <div>
+              <picture>
+                <a href="index.html" class="active">
+                  <img src="img/logo.png" alt="logo_isen">
+                </a>
+              </picture>
+            </div>
             <div>© 2023 Projet A3 ISEN Nantes</div>
             <div>
-              <p>Valentin<br> Hervé <i class="far fa-envelope" style="color: #ffc40c;"></i></p>
-              <p>Maxence<br> Rogerieux<i class="far fa-envelope" style="color: #ffc40c;"></i></p>
-              <p>Antoine<br> Esnault<i class="far fa-envelope" style="color: #ffc40c;"></i></p>
+              <p>Valentin<br> Hervé <i class="far fa-envelope" style="color: #ffc40c;font-size: 200%;"></i></p>
+              <p>Maxence<br> Rogerieux<i class="far fa-envelope" style="color: #ffc40c;font-size: 200%;"></i></p>
+              <p>Antoine<br> Esnault<i class="far fa-envelope" style="color: #ffc40c;font-size: 200%;"></i></p>
               
             </div>
           </span>
@@ -95,8 +106,5 @@
         </footer>
       </div>
     </div>
-    
-    
-    
   </body>
 </html>

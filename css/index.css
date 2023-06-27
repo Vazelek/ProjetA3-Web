@@ -1,0 +1,59 @@
+/*content*/
+
+.container {
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+}
+
+#text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  width: 100%;
+  flex-direction: column;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 2%;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, white, transparent);
+  mix-blend-mode: screen;
+}
+
+#superposition {
+    width: 75%;
+    height: 50%;
+    border-radius: 20px;
+    margin-top: 5vh;
+    margin-left: 5vh;
+}
+
+.container .title_img{
+  vertical-align: middle;
+}
+
+.button{
+  margin-left: 5%;
+}
+
+.description_projet{
+    margin-left: 15%;
+    margin-right: 15%;
+    flex-direction: column;
+}
+
+#content div{
+  display: flex;
+  margin-bottom: 2vh;
+  margin-left: 3vh;
+}
+
+#index_visu{
+  align-items: center;
+  margin-left: 5%;
+}
