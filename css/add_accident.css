@@ -1,0 +1,105 @@
+.btn_add_accident{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #FFC800;
+    font-weight: bolder;
+    padding: 15px;
+    box-shadow: 5px 10px 10px lightgray;
+    border-radius: 25px;
+    margin: 4%;
+}
+
+.btn_add_accident:hover{
+    cursor: pointer;
+    color: white;
+}
+
+#text-accident{
+    color: black;
+    font-size: 160px;
+    font-family: Bebas Neue;
+    font-weight: 400;
+    line-height: 140px;
+    text-align: center;
+}
+
+/* Form */
+
+.Vcontainer{
+    display: inline-flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-bottom: 2%;
+    box-shadow: 0px 5px 5px lightgray;
+    border-radius: 15px;
+}
+
+.Hcontainer{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    align-content: stretch;
+    margin-top: 4%;
+    max-width: 95%;
+}
+
+.Yrect{
+    width: 60px; 
+    height: 60px; 
+    left: 0px; 
+    top: 0px; 
+    background: #FFC800; 
+    box-shadow: 0px 4px 4px 
+    rgba(0, 0, 0, 0.25); 
+    border-radius: 5px 0px 0px 5px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.Yrect img{
+    max-width: 45%;
+    max-height: 100%;
+}
+
+.Hcontainer .Yrect{
+    margin-left: 2%;
+}
+
+.Wrect{
+    width: 199px; 
+    height: 60px; 
+    left: 67px; 
+    top: 0px; 
+    background: white; 
+    box-shadow: 0px 4px 4px 
+    rgba(0, 0, 0, 0.25) inset; 
+    border-radius: 5px
+}
+
+#content{
+    text-align: center;
+}
+
+.taille-input{
+    width: 50vh;
+}
+
+.two-input{
+    width: 22vh;
+}
+
+.red{
+    color: red;
+}
+
+#warning{
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+#warning p{
+    margin-left: 2%;
+}

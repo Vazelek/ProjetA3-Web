@@ -50,10 +50,29 @@
 #content div{
   display: flex;
   margin-bottom: 2vh;
-  margin-left: 3vh;
 }
 
 #index_visu{
   align-items: center;
   margin-left: 5%;
+}
+
+.button {
+  border-radius: 50px;
+  border-style : none; 
+  /* Mikado yellow color*/
+  background-color: #ffc40c;
+  margin: 2vh;
+  padding: 10px;
+  text-decoration: none;
+  box-shadow: 5px 10px 10px lightgray;
+}
+
+button {
+  border-radius: 50px;
+  border-style : none; 
+  /* Mikado yellow color*/
+  background-color: #ffc40c;
+  margin: 25px;
+  padding: 10px;
 }

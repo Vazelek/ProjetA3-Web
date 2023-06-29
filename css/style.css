@@ -10,50 +10,6 @@
 }
 
 /* Body */
-
-/* body{
-    display: flex;
-    flex-direction: column;
-} */
-
-.Vcontainer{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: center;
-    align-content: stretch;
-}
-
-.Hcontainer{
-    display: flex;
-    flex-direction: row;
-    align-items: left;
-    align-content: stretch;
-}
-
-.Yrect{
-    width: 60px; 
-    height: 60px; 
-    left: 0px; 
-    top: 0px; 
-    background: #FFC800; 
-    box-shadow: 0px 4px 4px 
-    rgba(0, 0, 0, 0.25); 
-    border-radius: 5px
-}
-
-.Wrect{
-    width: 199px; 
-    height: 60px; 
-    left: 67px; 
-    top: 0px; 
-    background: white; 
-    box-shadow: 0px 4px 4px 
-    rgba(0, 0, 0, 0.25) inset; 
-    border-radius: 5px
-}
-
-/* Acceuil */
 #page {
 	min-height:100vh; 
 	display:flex; 
@@ -62,8 +18,12 @@
 
 #content {
 	flex-grow:1; 
+}
 
-.button {
+
+/* Acceuil */
+
+nav button {
     border-radius: 50px;
     border-style : none; 
     /* Mikado yellow color*/
@@ -73,13 +33,8 @@
     text-decoration: none;
 }
 
-button {
-    border-radius: 50px;
-    border-style : none; 
-    /* Mikado yellow color*/
-    background-color: #ffc40c;
-    margin: 25px;
-    padding: 10px;
+nav button:hover{
+    cursor: pointer;
 }
 
 a {
