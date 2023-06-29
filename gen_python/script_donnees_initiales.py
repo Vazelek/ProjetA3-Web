@@ -22,7 +22,7 @@ def reducDim(df):
     
     return df_reduced
 
-csv_file = "gen_python/resources/export.csv"
+csv_file = "resources/export.csv"
 file = pd.read_csv(csv_file, sep=';')
 df = prepaDB(file)
 df_reduced  = reducDim(df)
@@ -53,7 +53,7 @@ if os.path.isfile("sql/data_init.sql"):
     file.write('-- Table Utilisation de dispositif de sécurité\n')
     file.write('DELETE FROM securite;\n')
     file.write('ALTER TABLE securite AUTO_INCREMENT = 1;\n\n')
-    file.write('INSERT INTO securite (descr_dispo_secu) VALUES \n("Utilisation d\'une ceinture de sécurité "),\n("Utilisation d''un casque "),\n("Présence d\'une ceinture de sécurité - Utilisation non déterminable"),\n("Présence de ceinture de sécurité non utilisée "),\n("Autre - Non déterminable"),\n("Présence d\'un équipement réfléchissant non utilisé"),\n("Présence d\'un casque non utilisé "),\n("Utilisation d\'un dispositif enfant"),\n ("Présence d\'un casque - Utilisation non déterminable"),\n("Présence dispositif enfant - Utilisation non déterminable"),\n("Autre - Utilisé"), \n("Utilisation d\'un équipement réfléchissant "),\n("Autre - Non utilisé"), \n("Présence équipement réfléchissant - Utilisation non déterminable"),\n("Présence d\'un dispositif enfant non utilisé");\n\n')
+    file.write('INSERT INTO securite (descr_dispo_secu) VALUES \n("Utilisation d\'une ceinture de sécurité "),\n("Utilisation d\'un casque "),\n("Présence d\'une ceinture de sécurité - Utilisation non déterminable"),\n("Présence de ceinture de sécurité non utilisée "),\n("Autre - Non déterminable"),\n("Présence d\'un équipement réfléchissant non utilisé"),\n("Présence d\'un casque non utilisé "),\n("Utilisation d\'un dispositif enfant"),\n ("Présence d\'un casque - Utilisation non déterminable"),\n("Présence dispositif enfant - Utilisation non déterminable"),\n("Autre - Utilisé"), \n("Utilisation d\'un équipement réfléchissant "),\n("Autre - Non utilisé"), \n("Présence équipement réfléchissant - Utilisation non déterminable"),\n("Présence d\'un dispositif enfant non utilisé");\n\n')
 
     villes = pd.read_csv("gen_python/resources/commune2021.csv", sep = ",").drop(labels = ["TYPECOM", "REG", "DEP", "CTCD", "ARR", "TNCC", "NCC", "NCCENR", "CAN", "COMPARENT"], axis = 1).values.tolist()
 
