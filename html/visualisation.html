@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link href="../css/visualisation.css" rel="stylesheet" />
+    <title>Visualisation</title>
+</head>
+<body>
+<div id="page">
+    <div>
+        <!-- Header -->
+        <nav>
+            <ul>
+              <li>
+                <picture>
+                  <a href="../index.html" class="active">
+                    <img src="../img/logo.svg" alt="logo_isen">
+                  </a>
+                </picture>
+              </li>
+              <li><a href="../index.html">Accueil</a></li>
+              <li><a href="visualisation.html" class="active">Visualisation</a></li>
+              <li><a href="add_accident.html">Ajouter un accident</a></li>
+              <li><a href="#">Se connecter <i class="fa-regular fa-user"></i></a></li>
+              <li><a href=""  class="button"><button>Créer un compte  <i class="fas fa-user-plus"></i></button></a></li>
+            </ul>
+          </nav>
+    </div>
+    <div id="content">
+
+        <h1>VISUALISATION</h1>
+
+        <div id="content_table">
+
+            <h2>TABLEAU</h2>
+
+            <div class="container">
+                <div id="set_filters" class="container">
+                    <span class="material-symbols-outlined filter-icon">filter_alt</span>
+                    <p class="filter-txt">Filtrer les résultats</p>
+                </div>
+            </div>
+
+            <div class="container">
+                <p id="nb_result">résultat(s)</p>
+            </div>
+
+            <div class="container page-selector">
+                <img src="../img/arrow" class="arrow left-arrow">
+
+                <p class="page_fl page_min">1</p>
+                <input type="number" class="page_selec" name="page_selec" id="page_selec_1" value="1">
+                <p class="page_fl page_max"></p>
+
+                <!-- <p class="index_page">Page : <input type="number" class="page_selec" name="page_selec" value="1"> / <span class="page_max"></span></p> -->
+
+                <img src="../img/arrow" class="arrow right-arrow">
+            </div>
+            
+            <div class="container">
+                <table id="data-array" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>
+                                
+                            </th>
+                            <th class="table_header" id="th_left">
+                                ID
+                            </th>
+                            <th class="table_header">
+                                Date
+                            </th>
+                            <th class="table_header">
+                                Heure
+                            </th>
+                            <th class="table_header">
+                                Âge
+                            </th>
+                            <th class="table_header">
+                                Ville
+                            </th>
+                            <th class="table_header">
+                                Latitude
+                            </th>
+                            <th class="table_header">
+                                Longitude
+                            </th>
+                            <th class="table_header">
+                                Luminosité
+                            </th>
+                            <th class="table_header">
+                                Conditions atmosphériques
+                            </th>
+                            <th class="table_header">
+                                État de la surface
+                            </th>
+                            <th class="table_header">
+                                Dispositifs de sécurité
+                            </th>
+                            <th class="table_header" id="th_right">
+                                Gravité
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="container page-selector">
+                <img src="../img/arrow" class="arrow left-arrow">
+
+                <p class="page_fl page_min">1</p>
+                <input type="number" class="page_selec" name="page_selec" id="page_selec_2" value="1">
+                <p class="page_fl page_max"></p>
+
+                <!-- <p class="index_page">Page : <input type="number" class="page_selec" name="page_selec" value="1"> / <span class="page_max"></span></p> -->
+
+                <img src="../img/arrow" class="arrow right-arrow">
+            </div>
+
+            <div class="container" id="container_btn">
+                <button id="pred_grav" class="btn_pred">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                    Prédire la gravité
+                </button>
+                <button id="pred_clust" class="btn_pred">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                    Prédire les clusters
+                </button>
+            </div>
+        </div>
+
+        <div id="content_map">
+            <h2>CARTE</h2>
+
+            <div id="map_container">
+                <div id="map">
+
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
+  
+
+    <!-- Footer -->
+    <div>
+        <footer>
+          <hr>
+          <p>
+            Nous sommes une équipe d’étudiants en troisième année à l’ISEN (école d’ingénieur). 
+            Notre projet est de réaliser un site web pour visualisation une base de données d’accidents de la route de 2009.
+          </p>
+
+          <hr>
+          <span>
+            <div>
+              <picture>
+                <a href="../index.html" class="active">
+                  <img src="../img/logo.svg" alt="logo_isen">
+                </a>
+              </picture>
+            </div>
+            <div>© 2023 Projet A3 ISEN Nantes</div>
+            <div>
+              <p>Valentin<br> Hervé <i class="far fa-envelope" style="color: #ffc40c;font-size: 200%;"></i></p>
+              <p>Maxence<br> Rogerieux<i class="far fa-envelope" style="color: #ffc40c;font-size: 200%;"></i></p>
+              <p>Antoine<br> Esnault<i class="far fa-envelope" style="color: #ffc40c;font-size: 200%;"></i></p>
+              
+            </div>
+          </span>
+          
+        </footer>
+      </div>
+
+    <img src="../img/france.png" alt="go_to_france" id="go_to_btn">
+
+    <div id="filters" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span id="close-popup">&times;</span>
+
+            <h2>FILTRES</h2>
+            
+            <div class="container-vert">
+                <!-- Age -->
+                <div class="container popup-row">
+                    <div class="container popup-item popup-item-left">
+                        <span class="material-symbols-outlined popup-icon">cake</span>
+                        <input type="number" name="age_min" id="age_min" placeholder="Âge minimum" class="item-input">
+                    </div>
+                    <div class="container popup-item popup-item-right" id="dezfrgthg">
+                        <span class="material-symbols-outlined popup-icon">cake</span>
+                        <input type="number" name="age_max" id="age_max" placeholder="Âge maximum" class="item-input">
+                    </div>
+                </div>
+                <!-- Date -->
+                <div class="container popup-row">
+                    <div class="container popup-item popup-item-left">
+                        <span class="material-symbols-outlined popup-icon">event</span>
+                        <input type="number" name="annee" id="annee" placeholder="Année" class="item-input">
+                    </div>
+                    <div class="container popup-item popup-item-left popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">event</span>
+                        <input type="number" name="mois" id="mois" placeholder="Mois" class="item-input">
+                    </div>
+                    <div class="container popup-item popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">event</span>
+                        <input type="number" name="jour" id="jour" placeholder="Jour" class="item-input">
+                    </div>
+                </div>
+                <!-- Ville -->
+                <div class="container popup-row">
+                    <div class="container popup-item">
+                        <span class="material-symbols-outlined popup-icon">apartment</span>
+                        <input id="code_insee" list="code_insee_l" onchange="resetIfInvalid(this);" placeholder="Ville" class="item-input">
+                        <datalist id="code_insee_l">
+                            
+                        </datalist>
+                        <!-- <input type="text" name="code_insee" id="code_insee" placeholder="Ville" class="item-input"> -->
+                    </div>
+                </div>
+                <!-- Lat / long -->
+                <div class="container popup-row">
+                    <div class="container popup-item popup-item-left">
+                        <span class="material-symbols-outlined popup-icon">public</span>
+                        <input type="text" name="lat_min" id="lat_min" placeholder="Latitude minimum" class="item-input">
+                    </div>
+                    <div class="container popup-item popup-item-left popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">public</span>
+                        <input type="text" name="lat_max" id="lat_max" placeholder="Latitude maximum" class="item-input">
+                    </div>
+                    <div class="container popup-item popup-item-left popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">public</span>
+                        <input type="text" name="long_min" id="long_min" placeholder="Longitude minimum" class="item-input">
+                    </div>
+                    <div class="container popup-item popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">public</span>
+                        <input type="text" name="long_max" id="long_max" placeholder="Longitude maximum" class="item-input">
+                    </div>
+                </div>
+                <!-- Lum -->
+                <div class="container popup-row">
+                    <div class="container popup-item popup-item-left">
+                        <span class="material-symbols-outlined popup-icon">light_mode</span>
+                        <select name="id_lum" id="id_lum" class="item-input">
+                            <option value="">-- Luminosité --</option>
+                        </select>
+                    </div>
+                    <div class="container popup-item popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">shield</span>
+                        <select name="id_dispo_secu" id="id_dispo_secu" class="item-input">
+                            <option value="">-- Dispositifs de sécurité --</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Atmo -->
+                <div class="container popup-row">
+                    <div class="container popup-item popup-item-left">
+                        <span class="material-symbols-outlined popup-icon">cloud</span>
+                        <select name="id_athmo" id="id_athmo" class="item-input">
+                            <option value="">-- Conditions atmosphériques --</option>
+                        </select>
+                    </div>
+                    <div class="container popup-item popup-item-right">
+                        <span class="material-symbols-outlined popup-icon">deployed_code</span>
+                        <select name="id_etat_surf" id="id_etat_surf" class="item-input">
+                            <option value="">-- État de la surface --</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Surface -->
+                <!-- <div class="container popup-row">
+                    <div class="container popup-item">
+                        <span class="material-symbols-outlined popup-icon">deployed_code</span>
+                        <select name="id_etat_surf" id="id_etat_surf" class="item-input">
+                            <option value="">-- État de la surface --</option>
+                        </select>
+                    </div>
+                </div> -->
+                <!-- Sécurité -->
+                <!-- <div class="container popup-row">
+                    
+                </div> -->
+                <!-- Gravité -->
+                <div class="container popup-row">
+                    <div class="container popup-item">
+                        <span class="material-symbols-outlined popup-icon">healing</span>
+                        <select name="id_grav" id="id_grav" class="item-input">
+                            <option value="">-- Gravité --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <button id="submit_btn" class="btn">
+                        <span class="material-symbols-outlined">
+                            filter_alt
+                        </span>
+                        Appliquer les filtres
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+      
+    </div>
+
+    <div id="predictions" class="modal">
+        <!-- Modal content Prediction -->
+        <div class="modal-content">
+            <span id="close_popup_predi">&times;</span>
+            <div id="title_predi">
+                
+                <h2>Prédictions - Gravités</h2>
+            </div>
+            <div id="tabScore">
+                <!-- emplacement des scores -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- TEMP -->
+    <div id="form" hidden>
+        <h1>Inscription</h1>
+        <p>limit</p>
+        <input type="text" name="limit" id="limit">
+        <br>
+
+        <label for="order_by">Order by:</label>
+        <select name="order_by" id="order_by">
+            <option value="id">ID</option>
+            <option value="age">Âge</option>
+            <option value="date">Date</option>
+        </select>
+        <br>
+        <input type="radio" id="asc" name="asc" value="asc">
+        <label for="asc">ASC</label><br>
+        <input type="radio" id="desc" name="asc" value="desc">
+        <label for="desc">DESC</label><br>
+
+        <p>PS : Le order by sera sous forme de flêche en haut des catégories plutôt</p>
+
+        <!-- <button id="submit_btn">Rechercher</button> -->
+        <br><br>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/map.js"></script>
+<script src="../js/filters.js"></script>
+<script src="../js/predi_grav.js"></script>
+<script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+</html>
