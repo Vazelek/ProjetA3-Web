@@ -152,6 +152,16 @@
                 $data = dbGetSecurite($db);
             }
         }
+        elseif ($requestRessource == 'gravite'){
+            if($requestMethod == "GET"){
+                $data = dbGetGravite($db);
+            }
+        }
+        elseif ($requestRessource == 'villes'){
+            if($requestMethod == "GET"){
+                $data = dbGetVilles($db);
+            }
+        }
         //Ajout des informations d'un nouvel accident
         elseif($requestMethod == 'POST'){
             if($requestRessource == 'add_accident'){
@@ -198,9 +208,17 @@
                         $secu = $_POST["secu"];
                     }
 
-                    addAccident($df, $age = $age, $date = $date, $heure = $heure, $latitude = $lat, $longitude = $long, $id_ville = $ville, $id_lum = $lum, $id_athmo = $athmo, $id_etat_surf = $etat_surf, $id_dispo_secu = $secu);
+                    addAccident($db, $age = $age, $date = $date, $heure = $heure, $latitude = $lat, $longitude = $long, $id_ville = $ville, $id_lum = $lum, $id_athmo = $athmo, $id_etat_surf = $etat_surf, $id_dispo_secu = $secu);
                 }
             }
+            
         }
+        elseif($requestMethod == 'GET'){
+            if($requestRessource == 'getScore'){
+                $idPOST = $_GET["id"];
+                $data = getScore($db,$idPOST);
+            }
+        }
+        
         echo json_encode($data);
 ?>
